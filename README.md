@@ -74,7 +74,57 @@ CIRCUIT DIAGRAM
 
 
 ### PROGRAM :
+  #include<Servo.h>
+Servo sr1;
+int pos=0;
+int red= 9;
+int green=8;
+
+void setup()
+{
+ sr1.attach(6);
+ Serial.begin(9600);
+ pinMode(red,OUTPUT);
+ pinMode(green,OUTPUT);
+}
+void loop()
+{
+ for(pos=0;pos<=180;pos+=5)
+ {
+   sr1.write(pos);
+    Serial.println(pos);
+ if(pos>=120)
+   {
+     digitalWrite(red,HIGH);
+     delay(200);
+     digitalWrite(red,LOW);
+     delay(200);
+   }
+ }
+  for(pos=180;pos>=0;pos-=5)
+  {
+    sr1.write(pos);
+     Serial.println(pos);
+ if(pos<=120)
+ {
+   digitalWrite(red,HIGH);
+   delay(200);
+   digitalWrite(red,LOW);
+   delay(200);
+ }
  
+  }
+}
+ circuit:
+ ![image](https://github.com/balajeeakm/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/131589871/9cc68bb0-4709-46f0-81b4-de27170695ab)
+ Schematic view:
+
+![image](https://github.com/balajeeakm/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/131589871/ce207cb9-ecee-458a-8cc4-60f085226019)
+Graph:
+![image](https://github.com/balajeeakm/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/131589871/3316034b-894a-4c9a-b9a1-8c5c082eded8)
+
+
+
 
 
 
